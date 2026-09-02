@@ -6,7 +6,7 @@ A restaurant website built for The Odin Project using HTML, CSS, JavaScript, and
 
 The website has Home, Menu, and Contact tabs. JavaScript switches between them without reloading the page. Restaurant details and prices are fictional.
 
-[View Website](https://jahphetb.github.io/restaurant_page/) | [GitHub Repository](https://github.com/jahphetB/restaurant_page)
+[View Website](https://jahphetb.github.io/restaurant_page/) |
 
 ## 1. Project Setup and Files
 
