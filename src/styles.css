@@ -1,0 +1,323 @@
+/* Shared colors and fonts */
+:root {
+    --background: #f6f3ec;
+    --surface: #fffdf8;
+    --forest: #193b32;
+    --forest-dark: #102820;
+    --gold: #b59560;
+    --text: #253a32;
+    --muted: #69756d;
+    --border: #ded8cb;
+
+    --heading-font: Georgia, "Times New Roman", serif;
+    --body-font: Arial, Helvetica, sans-serif;
+}
+
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--body-font);
+    line-height: 1.6;
+}
+
+/* Navigation */
+body > header {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+nav button {
+    padding: 12px 26px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--forest);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+nav button:hover {
+    background-color: var(--forest);
+    color: var(--surface);
+    box-shadow: 0 6px 16px rgb(16 40 32 / 15%);
+    transform: translateY(-2px);
+}
+
+nav button:active {
+    transform: translateY(0);
+}
+
+nav button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* Main content area */
+#content {
+    width: min(1180px, calc(100% - 48px));
+    margin: 40px auto 64px;
+}
+
+/* Home page */
+.home-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "heading image"
+        "description image";
+    column-gap: 48px;
+    row-gap: 24px;
+    padding: 48px;
+    border: 1px solid rgb(181 149 96 / 35%);
+    border-radius: 24px;
+    background-color: var(--forest-dark);
+    color: var(--surface);
+    box-shadow: 0 24px 60px rgb(16 40 32 / 14%);
+}
+
+.home-page h3 {
+    grid-area: heading;
+    align-self: end;
+    font-family: var(--heading-font);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.home-page h3::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin-top: 28px;
+    background-color: var(--gold);
+}
+
+.home-page p {
+    grid-area: description;
+    align-self: start;
+    max-width: 36ch;
+    color: #d5ddd5;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.home-page img {
+    grid-area: image;
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid rgb(255 253 248 / 15%);
+    border-radius: 200px 200px 16px 16px;
+    box-shadow: 0 16px 32px rgb(0 0 0 / 20%);
+}
+
+/* Shared Menu and Contact styling */
+.menu-page,
+.contact-page {
+    min-height: 440px;
+    padding: clamp(28px, 6vw, 72px);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: 16px;
+    background-color: var(--surface);
+    box-shadow: 0 16px 40px rgb(37 58 50 / 7%);
+}
+
+.menu-page h2,
+.contact-page h2 {
+    margin-bottom: 16px;
+    color: var(--forest);
+    font-family: var(--heading-font);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.page-intro {
+    max-width: 65ch;
+    margin-bottom: 40px;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Menu and Contact grids */
+.menu-categories,
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+}
+
+/* Menu categories */
+.menu-category {
+    padding-top: 20px;
+    border-top: 2px solid var(--gold);
+}
+
+.menu-category h3,
+.contact-card h3 {
+    margin-bottom: 18px;
+    color: var(--forest);
+    font-family: var(--heading-font);
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* Individual menu items */
+.menu-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.menu-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.menu-item .price {
+    flex-shrink: 0;
+    color: var(--forest);
+    font-size: 1rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.menu-item p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+/* Contact information cards */
+.contact-card {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--background);
+}
+
+.contact-card p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.contact-card p + p {
+    margin-top: 10px;
+}
+
+/* Tablets and smaller screens */
+@media (max-width: 760px) {
+    body > header,
+    #content {
+        width: calc(100% - 32px);
+    }
+
+    #content {
+        margin-top: 24px;
+    }
+
+    .home-page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "heading"
+            "image"
+            "description";
+        gap: 28px;
+        padding: 28px;
+    }
+
+    .home-page h3 {
+        font-size: clamp(2.8rem, 10vw, 4rem);
+    }
+
+    .home-page img {
+        height: 360px;
+    }
+
+    .home-page p {
+        max-width: none;
+    }
+
+    .menu-categories,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .contact-card {
+        padding: 24px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+    nav {
+        gap: 4px;
+    }
+
+    nav button {
+        padding: 10px 16px;
+        font-size: 0.75rem;
+    }
+
+    .home-page {
+        padding: 24px;
+    }
+
+    .home-page img {
+        height: 280px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    nav button {
+        transition: none;
+    }
+}

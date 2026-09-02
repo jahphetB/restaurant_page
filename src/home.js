@@ -7,14 +7,14 @@ export default function loadHome() {
     home.classList.add("home-page");
 
     const header = document.createElement("h3");
-    header.textContent = "this is the greatest restaurant design";
+    header.textContent = "Saffron & Stone";
 
     const image = document.createElement("img");
     image.src = foodImage;
     image.alt = "res food";
 
     const bottom = document.createElement("p");
-    bottom.textContent = "ok this thing actually might work right?";
+    bottom.textContent = "Seasonal dishes, thoughtful details, and warm hospitality. Make yourself at home at our table.";
 
     home.appendChild(header);
     home.appendChild(image);
